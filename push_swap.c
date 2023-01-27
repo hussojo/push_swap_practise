@@ -12,21 +12,3 @@
 
 //implementation of basic stack function
 
-int push(int *top, int n)
-{
-	if(!n)
-		write(1, "nothing to add", 15);
-	else
-		*top = &n;
-
-}
-
-int pop()
-{
-
-}
-
-int peek()
-{
-
-}
