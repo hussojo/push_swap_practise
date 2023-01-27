@@ -6,7 +6,7 @@
 /*   By: jhusso <jhusso@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/21 15:41:25 by jhusso            #+#    #+#             */
-/*   Updated: 2023/01/27 10:51:18 by jhusso           ###   ########.fr       */
+/*   Updated: 2023/01/27 15:13:38 by jhusso           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,9 +19,12 @@
 
 # include "libft/libft.h"
 
-void	set_array(char *argv);
-int		array_len(char *argv);
-int		main(int ac, char **av);
+void		set_array(char *argv);
+size_t		array_len(char *argv);
+int			main(int ac, char **av);
+char		*ft_nbrcpy(char *dst, const char *src);
+char		*ft_nbrlcpy(char *dst, const char *src, size_t dstsize);
+char		*ft_avdup(const char *s, size_t len);
 
 
 
