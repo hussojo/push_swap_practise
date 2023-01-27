@@ -6,18 +6,18 @@
 #    By: jhusso <jhusso@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/01/21 15:49:29 by jhusso            #+#    #+#              #
-#    Updated: 2023/01/27 10:12:38 by jhusso           ###   ########.fr        #
+#    Updated: 2023/01/27 11:17:56 by jhusso           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME = lps.a
+NAME = libftpushswap.a
 CC = cc
 RM = rm -f
 BUILD_FLAGS = -Wall -Wextra -Werror
 LIBFT = ./libft
 INCLUDE = ./libft/libft.h
 
-SRC =	main.c
+SRC =	push_swap.c
 
 OBJ = $(SRC:.c=.o)
 
@@ -33,7 +33,7 @@ $(NAME): $(SRC)
 
 clean:
 	$(RM) $(OBJ)
-	cd $(LIBFT) && $(MAKE) clean
+	cd $(LIBFT) && $(MAKE) clean -libft
 
 fclean: clean
 	$(RM) $(NAME)
