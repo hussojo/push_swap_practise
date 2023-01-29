@@ -6,7 +6,7 @@
 /*   By: jhusso <jhusso@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/21 15:49:16 by jhusso            #+#    #+#             */
-/*   Updated: 2023/01/27 15:21:19 by jhusso           ###   ########.fr       */
+/*   Updated: 2023/01/29 17:00:35 by jhusso           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,51 +14,52 @@
 
 #include "push_swap.h"
 
-size_t array_len(char *av)
+char **ft_one_arg(char *av, char **st_a)
 {
-	int i;
-	size_t count;
-
-	i = 0;
-	count = 0;
-	while(av[i] != '\0') //&& av[i] != 9)
-	{
-		if(av[i] != 32)
-			count++;
-		i++;
-	}
-	return(count);
+	st_a = ft_split(av, 32);
+	return(st_a);
 }
 
-void set_array(char *av) // with spaces
+char **ft_many_args(char *av, int ac, char **st_a)
 {
-	 char *stack_a;
-	size_t len;
-	size_t i = 0;
-
-	len = array_len(av);
-	printf("%zu\n", len);
-	// stack_a = (char *)calloc(len + 1, sizeof(int ));
-	stack_a = ft_avdup(av, len);
-	while(i <= len)
-	{
-		printf("%d", atoi(&stack_a[i]));
-		i++;
-	}
+	static int aux = 0;
+	st_a = (char **)malloc(sizeof(char *) * ac);
+	if(!st_a)
+		return NULL;
+	st_a[ac] = 0;
+	st_a[aux] = ft_strdup(av);
+	printf("st_a[%d] = %s\n", aux, st_a[aux]);
+	aux = aux +1;
+	return(st_a);
 }
 
 int main(int ac, char **av)
 {
-	int i = 0;
-
+	static char **st_a;
+	// if(ac < 2)
+		//write(1, "error", 6);
 	if(ac == 2)
 	{
-		while(av[1][i] != '\0')
+		st_a = ft_one_arg(av[1], st_a);
+	}
+
+	if(ac > 2)
+	{
+		int i;
+		int j;
+
+		i = 0;
+		while(++i < ac)
 		{
-			printf("av[1] = %c\n", av[1][i]);
-			i++;
+			st_a = ft_many_args(av[i], ac, st_a);
 		}
-		set_array(av[1]);
+		printf("here\n");
+		j=0;
+		while(j < ac)
+		{
+			printf("st_a in main[%d] = %s\n", j, st_a[j]);
+			j++;
+		}
 	}
 	return(0);
 }
