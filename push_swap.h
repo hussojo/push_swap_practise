@@ -6,7 +6,7 @@
 /*   By: jhusso <jhusso@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/21 15:41:25 by jhusso            #+#    #+#             */
-/*   Updated: 2023/01/29 18:42:37 by jhusso           ###   ########.fr       */
+/*   Updated: 2023/02/03 09:47:33 by jhusso           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,7 @@
 # include "libft/libft.h"
 
 int			main(int ac, char **av);
-char		**ft_one_arg(char *av, char **st_a);
+static char	**ft_one_arg(char **av, char **st_a);
+static char	**ft_many_args(char **av, int ac, char **st_a);
 
 #endif
