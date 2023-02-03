@@ -6,7 +6,7 @@
 /*   By: jhusso <jhusso@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/21 15:49:16 by jhusso            #+#    #+#             */
-/*   Updated: 2023/02/03 10:25:36 by jhusso           ###   ########.fr       */
+/*   Updated: 2023/02/03 10:38:36 by jhusso           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@ static char **ft_many_args(char **av, int ac, char **st_a)
 	int size;
 	i = 1;
 	j = 0;
-	st_a = (char **)malloc(sizeof(char *) * ac);
+	st_a = (char **)calloc(sizeof(char *), ac);
 	if(!st_a)
 		return NULL;
 	while(i < ac)
@@ -37,13 +37,6 @@ static char **ft_many_args(char **av, int ac, char **st_a)
 		i++;
 		j++;
 	}
-	// j = 0;
-	// while(j < ac)
-	// {
-	// 	printf("st_a[%d] = %s\n", j, st_a[j]);
-	// 	j++;
-	// }
-	st_a[ac] = 0;
 	return(st_a);
 }
 
@@ -62,7 +55,7 @@ int main(int ac, char **av)
 	{
 		st_a = ft_many_args(av, ac, st_a);
 	}
-	while(st_a[i])
+	while(st_a[i] != '\0')
 	{
 		printf("st_a[%d] = %s\n", i, st_a[i]);
 		i++;
