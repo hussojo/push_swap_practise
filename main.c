@@ -6,13 +6,10 @@
 /*   By: jhusso <jhusso@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/21 15:41:01 by jhusso            #+#    #+#             */
-/*   Updated: 2023/01/27 10:30:29 by jhusso           ###   ########.fr       */
+/*   Updated: 2023/02/06 10:37:29 by jhusso           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <unistd.h> // write
 #include <stdlib.h> // NULL, exit failure & success
 #include <stdio.h>
-
-
-
