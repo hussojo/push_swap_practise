@@ -6,7 +6,7 @@
 /*   By: jhusso <jhusso@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/27 14:16:28 by jhusso            #+#    #+#             */
-/*   Updated: 2023/02/06 14:06:08 by jhusso           ###   ########.fr       */
+/*   Updated: 2023/02/06 14:21:32 by jhusso           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,11 @@
 
 int	is_int(char **st_a)
 {
-	if (st_a)
-		printf("Im here\n");
+	printf("Im here\n");
+	// int i;
+
+	// i = 0;
+	// while (st_a[i])
 	return (0);
 }
 
@@ -38,15 +41,17 @@ int	ft_check_ac(char **st_a)
 	int	i;
 
 	i = 0;
-	if (no_duplicates(&st_a[i]) == 0)
+	if (no_duplicates(st_a) == 1)
 	{
-		while (is_int(&st_a[i]) == 0)
-			i++;
-		printf("SUCCESS\n");
-		return (0);
+		free(st_a);
+		printf("FAILURE\n");
+		exit(EXIT_FAILURE);
 	}
-	free(st_a);
-	printf("FAILURE\n");
-	exit(EXIT_FAILURE);
-	return (1);
+	if (is_int(st_a) == 1)
+	{
+		free(st_a);
+		printf("FAILURE\n");
+		exit(EXIT_FAILURE);
+	}
+	return (0); //success
 }
