@@ -6,7 +6,7 @@
 #    By: jhusso <jhusso@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/01/21 15:49:29 by jhusso            #+#    #+#              #
-#    Updated: 2023/02/06 13:55:20 by jhusso           ###   ########.fr        #
+#    Updated: 2023/02/08 10:20:47 by jhusso           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -28,7 +28,7 @@ all: $(NAME)
 $(NAME): $(SRC)
 	make -C ./libft/ all
 	mv ./libft/libft.a ./$(NAME)
-	$(CC) -c $(BUILD_FLAGS) $(SRC) -I $(INCLUDE)
+	$(CC) -c $(BUILD_FLAGS) $(SRC) -I $(INCLUDE) -g
 	ar rus $(NAME) $(OBJ)
 
 clean:
