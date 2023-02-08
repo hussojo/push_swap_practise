@@ -6,7 +6,7 @@
 /*   By: jhusso <jhusso@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/27 14:16:28 by jhusso            #+#    #+#             */
-/*   Updated: 2023/02/08 11:01:39 by jhusso           ###   ########.fr       */
+/*   Updated: 2023/02/08 12:41:26 by jhusso           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,9 +29,8 @@ int	is_int(char **st_a)
 	i = 0;
 	while (st_a[i] != '\0')
 	{
-		ft_atoi(st_a[i]);
-		if
-		printf("st_a[%d] = %s\n", i, st_a[i]);
+		if (ft_atoi(st_a[i]) == 0)
+			printf("error\n");
 		i++;
 	}
 	return (0);
@@ -50,7 +49,7 @@ int	no_duplicates(char **st_a)
 		j = i + 1;
 		while (j < len) //arglen
 		{
-			if (st_a[i] == st_a[j])
+			if (ft_atoi(st_a[i]) == ft_atoi(st_a[j]))
 				return (false); //duplicate found
 			j++;
 		}
@@ -63,6 +62,7 @@ int	ft_check_ac(char **st_a)
 {
 	int a = 0;
 	a = no_duplicates(st_a);
+	is_int(st_a);
 	if (a == 0) // means yes dublicates
 	{
 		free(st_a);

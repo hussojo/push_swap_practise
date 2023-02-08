@@ -6,7 +6,7 @@
 /*   By: jhusso <jhusso@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/21 15:49:16 by jhusso            #+#    #+#             */
-/*   Updated: 2023/02/08 10:46:18 by jhusso           ###   ########.fr       */
+/*   Updated: 2023/02/08 12:39:51 by jhusso           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,12 +55,11 @@ int	main(int ac, char **av)
 	{
 		st_a = ft_many_args(av, ac, st_a);
 	}
+	ft_check_ac(st_a);
 	while (st_a[i] != '\0')
 	{
-		ft_atoi(st_a[i]);
 		printf("st_a[%d] = %s\n", i, st_a[i]);
 		i++;
 	}
-	ft_check_ac(st_a);
 	return (0);
 }
