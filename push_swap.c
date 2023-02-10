@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jhusso <jhusso@student.42.fr>              +#+  +:+       +#+        */
+/*   By: josefinahusso <josefinahusso@student.42    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/21 15:49:16 by jhusso            #+#    #+#             */
-/*   Updated: 2023/02/08 12:39:51 by jhusso           ###   ########.fr       */
+/*   Updated: 2023/02/10 15:42:25 by josefinahus      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ static char	**ft_many_args(char **av, int ac, char **st_a)
 {
 	int	i;
 	int	j;
-	int	size;
+	//int	size;
 
 	i = 1;
 	j = 0;
@@ -31,7 +31,7 @@ static char	**ft_many_args(char **av, int ac, char **st_a)
 		return (NULL);
 	while (i < ac)
 	{
-		size = ft_strlen(av[i]);
+		//size = ft_strlen(av[i]);
 		st_a[j] = ft_strdup(av[i]);
 		i++;
 		j++;
@@ -56,7 +56,7 @@ int	main(int ac, char **av)
 		st_a = ft_many_args(av, ac, st_a);
 	}
 	ft_check_ac(st_a);
-	while (st_a[i] != '\0')
+	while (st_a[i])
 	{
 		printf("st_a[%d] = %s\n", i, st_a[i]);
 		i++;

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap_utils.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jhusso <jhusso@student.42.fr>              +#+  +:+       +#+        */
+/*   By: josefinahusso <josefinahusso@student.42    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/27 14:16:28 by jhusso            #+#    #+#             */
-/*   Updated: 2023/02/08 12:41:26 by jhusso           ###   ########.fr       */
+/*   Updated: 2023/02/10 15:48:34 by josefinahus      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ int av_count(char **st_a)
 	int count;
 
 	count = 0;
-	while (st_a[count] != '\0')
+	while (st_a[count])
 		count++;
 	printf("av_count:%d\n", count);
 	return(count);
@@ -27,10 +27,13 @@ int	is_int(char **st_a)
 {
 	int i;
 	i = 0;
-	while (st_a[i] != '\0')
+	while (st_a[i])
 	{
 		if (ft_atoi(st_a[i]) == 0)
+		{
+			printf("atoi return:%d", ft_atoi(st_a[i]));
 			printf("error\n");
+		}
 		i++;
 	}
 	return (0);
@@ -61,8 +64,9 @@ int	no_duplicates(char **st_a)
 int	ft_check_ac(char **st_a)
 {
 	int a = 0;
+	int b = 0;
+	b = is_int(st_a);
 	a = no_duplicates(st_a);
-	is_int(st_a);
 	if (a == 0) // means yes dublicates
 	{
 		free(st_a);
