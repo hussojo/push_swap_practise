@@ -6,7 +6,7 @@
 /*   By: jhusso <jhusso@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/06 10:34:19 by jhusso            #+#    #+#             */
-/*   Updated: 2023/02/06 10:37:28 by jhusso           ###   ########.fr       */
+/*   Updated: 2023/02/11 14:35:34 by jhusso           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,3 +27,22 @@
 		// 	j++;
 		// }
 		// st_a[ac] = 0;
+
+	// int j;
+
+	// i = 0;
+	// while (i < len - 1)
+	// {
+	// 	j = i + 1;
+	// 	while (j < len - i) //arglen
+	// 	{
+	// 		printf("here\n");
+	// 		if (st_a[i] == st_a[j])
+	// 		{
+	// 			printf("ERROR\n");
+	// 			return 0; //duplicate found
+	// 		}
+	// 		j++;
+	// 	}
+	// 	i++;
+	// }

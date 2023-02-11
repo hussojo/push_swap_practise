@@ -6,7 +6,7 @@
 /*   By: jhusso <jhusso@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/21 15:41:25 by jhusso            #+#    #+#             */
-/*   Updated: 2023/02/11 14:19:49 by jhusso           ###   ########.fr       */
+/*   Updated: 2023/02/11 14:45:31 by jhusso           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@ int			main(int ac, char **av);
 
 // push_swap_utils.c
 int			*work_stack(char **array);
-int			check_num(int *st_a);
+// int			check_num(int *st_a);
 int			no_duplicates(int *st_a, int len);
 int			av_count(char **array);
 int			*allocate_n_fill_stack(char **array);
