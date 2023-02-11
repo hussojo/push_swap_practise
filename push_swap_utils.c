@@ -6,25 +6,11 @@
 /*   By: jhusso <jhusso@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/27 14:16:28 by jhusso            #+#    #+#             */
-/*   Updated: 2023/02/11 11:09:23 by jhusso           ###   ########.fr       */
+/*   Updated: 2023/02/11 14:21:53 by jhusso           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
-
-int **allocate_stack(char **array, int **st_a)
-{
-	int len;
-
-	len = av_count(array);
-	st_a = (int **)calloc(sizeof(int *), len);
-	// if (!st_a || st_a[0] == NULL)
-	// {
-	// 	free
-	// 	exit
-	// }
-	return(st_a);
-}
 
 int av_count(char **array)
 {
@@ -33,41 +19,56 @@ int av_count(char **array)
 	count = 0;
 	while (array[count])
 		count++;
-	printf("av_count:%d\n", count);
+	// printf("av_count:%d\n", count); // HOX
 	return(count);
 }
 
-int	is_int(char **array)
+int *allocate_n_fill_stack(char **array)
 {
+	int len;
 	int i;
+	int *st_a;
 
+	len = av_count(array);
+	st_a = (int *)calloc(sizeof(int *), len);
+	if (!st_a)
+	{
+		free(st_a);
+		exit(1);
+	}
 	i = 0;
 	while (array[i])
 	{
-		if (ft_atoi(array[i]) == 0)
-		{
-			return 0; // non integer found
-		}
+	// 	printf("array[%d] = %s\n", i, array[i]); // HOX
+		st_a[i] = ft_atoi(array[i]);
+	// printf("st_a[%d] = %d\n", i, st_a[i]); // HOX
 		i++;
 	}
-	return (1); // all integers
+	return(st_a);
 }
 
-int	no_duplicates(char **array)
+
+int	check_num(int *st_a)
+{
+
+}
+
+int	no_duplicates(int *st_a, int len)
 {
 	int	i;
 	int j;
-	int len;
 
-	len = av_count(array);
 	i = 0;
 	while (i < len - 1)
 	{
 		j = i + 1;
-		while (j < len) //arglen
+		while (j < len - i) //arglen
 		{
-			if (array[i] == array[j])
+			if (st_a[i] == st_a[j])
+			{
+				printf("ERROR\n");
 				return 0; //duplicate found
+			}
 			j++;
 		}
 		i++;
@@ -75,29 +76,34 @@ int	no_duplicates(char **array)
 	return (1); // no duplicates
 }
 
-int	**ft_check_ac(char **array)
+int	*work_stack(char **array)
 {
-	int **st_a;
+	int *st_a;
 	int i = 0;
+	int len;
 
 	st_a = 0;
-	if (is_int(array) == 0 || no_duplicates(array) == 0)
+	len = len = av_count(array);
+	st_a = allocate_n_fill_stack(array);
+	if (check_num(st_a) == 0 || no_duplicates(st_a, len) == 0)
 	{
-		free(array);
+		free(st_a);
 		printf("FAILURE\n");
 		exit(1);
 	}
-	else
-	{
-		st_a = allocate_stack(array, st_a);
-		// fill_stack(array, st_a);
-	}
 	while (st_a[i])
 	{
-		printf("st_a[%d] = %s\n", i, array[i]);
+		printf("st_a[%d] = %d\n", i, st_a[i]); // HOX
 		i++;
 	}
 
-	return (st_a); //success
+	return ((int *)1);
+
+	// if ()
+	// else
+	// {
+	// 	free(array);
+	// }
+	// return (st_a); //success
 }
 
