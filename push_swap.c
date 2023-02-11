@@ -6,13 +6,13 @@
 /*   By: jhusso <jhusso@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/21 15:49:16 by jhusso            #+#    #+#             */
-/*   Updated: 2023/02/11 14:52:17 by jhusso           ###   ########.fr       */
+/*   Updated: 2023/02/11 17:04:24 by jhusso           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-static char	**ft_one_arg(char **av, char **array)
+char	**ft_one_arg(char **av, char **array)
 {
 	array = ft_split(av[1], 32);
 	if(!array)
@@ -20,7 +20,7 @@ static char	**ft_one_arg(char **av, char **array)
 	return (array);
 }
 
-static char	**ft_many_args(char **av, int ac, char **array)
+char	**ft_many_args(char **av, int ac, char **array)
 {
 	int	i;
 	int	j;
@@ -60,7 +60,10 @@ int	main(int ac, char **av)
 		if(!array || array[0] == NULL)
 			exit(1);
 	}
-	if(!work_stack(array)) // work stack
-		printf("error\n");
+	if(!work_stack(array))
+	{
+		error_msg("Error\n");
+		exit(1);
+	}
 	return (0);
 }
