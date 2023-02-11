@@ -3,81 +3,101 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap_utils.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: josefinahusso <josefinahusso@student.42    +#+  +:+       +#+        */
+/*   By: jhusso <jhusso@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/27 14:16:28 by jhusso            #+#    #+#             */
-/*   Updated: 2023/02/10 15:48:34 by josefinahus      ###   ########.fr       */
+/*   Updated: 2023/02/11 11:09:23 by jhusso           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-int av_count(char **st_a)
+int **allocate_stack(char **array, int **st_a)
+{
+	int len;
+
+	len = av_count(array);
+	st_a = (int **)calloc(sizeof(int *), len);
+	// if (!st_a || st_a[0] == NULL)
+	// {
+	// 	free
+	// 	exit
+	// }
+	return(st_a);
+}
+
+int av_count(char **array)
 {
 	int count;
 
 	count = 0;
-	while (st_a[count])
+	while (array[count])
 		count++;
 	printf("av_count:%d\n", count);
 	return(count);
 }
 
-int	is_int(char **st_a)
+int	is_int(char **array)
 {
 	int i;
+
 	i = 0;
-	while (st_a[i])
+	while (array[i])
 	{
-		if (ft_atoi(st_a[i]) == 0)
+		if (ft_atoi(array[i]) == 0)
 		{
-			printf("atoi return:%d", ft_atoi(st_a[i]));
-			printf("error\n");
+			return 0; // non integer found
 		}
 		i++;
 	}
-	return (0);
+	return (1); // all integers
 }
 
-int	no_duplicates(char **st_a)
+int	no_duplicates(char **array)
 {
 	int	i;
 	int j;
 	int len;
 
-	len = av_count(st_a);
+	len = av_count(array);
 	i = 0;
 	while (i < len - 1)
 	{
 		j = i + 1;
 		while (j < len) //arglen
 		{
-			if (ft_atoi(st_a[i]) == ft_atoi(st_a[j]))
-				return (false); //duplicate found
+			if (array[i] == array[j])
+				return 0; //duplicate found
 			j++;
 		}
 		i++;
 	}
-	return (true); // no duplicates
+	return (1); // no duplicates
 }
 
-int	ft_check_ac(char **st_a)
+int	**ft_check_ac(char **array)
 {
-	int a = 0;
-	int b = 0;
-	b = is_int(st_a);
-	a = no_duplicates(st_a);
-	if (a == 0) // means yes dublicates
+	int **st_a;
+	int i = 0;
+
+	st_a = 0;
+	if (is_int(array) == 0 || no_duplicates(array) == 0)
 	{
-		free(st_a);
+		free(array);
 		printf("FAILURE\n");
 		exit(1);
 	}
-	// if (is_int(st_a) == 1)
-	// {
-	// 	free(st_a);
-	// 	printf("FAILURE\n");
-	// 	exit(EXIT_FAILURE);
-	// }
-	return (0); //success
+	else
+	{
+		st_a = allocate_stack(array, st_a);
+		// fill_stack(array, st_a);
+	}
+	while (st_a[i])
+	{
+		printf("st_a[%d] = %s\n", i, array[i]);
+		i++;
+	}
+
+	return (st_a); //success
 }
+

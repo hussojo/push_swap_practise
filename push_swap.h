@@ -6,7 +6,7 @@
 /*   By: jhusso <jhusso@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/21 15:41:25 by jhusso            #+#    #+#             */
-/*   Updated: 2023/02/06 13:57:57 by jhusso           ###   ########.fr       */
+/*   Updated: 2023/02/11 10:18:50 by jhusso           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,10 +20,16 @@
 
 # include "libft/libft.h"
 
+// push_swap.c
 int			main(int ac, char **av);
-// static char	**ft_one_arg(char **av, char **st_a);
-// static char	**ft_many_args(char **av, int ac, char **st_a);
-int			ft_check_ac(char **st_a);
-int			no_duplicates(char **st_a);
+// static char	**ft_one_arg(char **av, char **array);
+// static char	**ft_many_args(char **av, int ac, char **array);
+
+// push_swap_utils.c
+int			**ft_check_ac(char **array);
+int			is_int(char **array);
+int			no_duplicates(char **array);
+int			av_count(char **array);
+int			**allocate_stack(char **array, int **st_a);
 
 #endif
