@@ -6,7 +6,7 @@
 /*   By: jhusso <jhusso@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/27 14:16:28 by jhusso            #+#    #+#             */
-/*   Updated: 2023/02/11 17:17:51 by jhusso           ###   ########.fr       */
+/*   Updated: 2023/02/12 10:29:36 by jhusso           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,14 +39,12 @@ int *allocate_n_fill_stack(char **array)
 	i = 0;
 	while (array[i])
 	{
-	// 	printf("array[%d] = %s\n", i, array[i]); // HOX
 		if(!ft_atoi(array[i]))
 		{
 			error_msg("Error\n");
 			exit(1);
 		}
 		st_a[i] = ft_atoi(array[i]);
-	// printf("st_a[%d] = %d\n", i, st_a[i]); // HOX
 		i++;
 	}
 	return(st_a);
@@ -59,7 +57,7 @@ int *mini_sort(int *aux, int len)
 
 	while (i < len - 1)
 	{
-		if (aux[i + 1] > aux[i])
+		if (aux[i] > aux[i + 1])
 		{
 			temp = aux[i];
 			aux[i] = aux[i + 1];
@@ -79,7 +77,6 @@ int *mini_sort(int *aux, int len)
 
 int	no_duplicates(int *st_a, int len)
 {
-
 	int i = 0;
 	int *aux;
 
@@ -100,6 +97,7 @@ int	no_duplicates(int *st_a, int len)
 			return (0);
 		i++;
 	}
+	free (aux);
 	return (1);
 }
 
@@ -112,7 +110,7 @@ int	work_stack(char **array)
 	st_a = 0;
 	len = av_count(array);
 	st_a = allocate_n_fill_stack(array);
-	if (!no_duplicates(st_a, len))
+	if (!st_a || st_a == NULL || !no_duplicates(st_a, len))
 	{
 		free(st_a);
 		error_msg("Error\n");
