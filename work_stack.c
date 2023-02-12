@@ -6,11 +6,29 @@
 /*   By: jhusso <jhusso@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/27 14:16:28 by jhusso            #+#    #+#             */
-/*   Updated: 2023/02/12 10:29:36 by jhusso           ###   ########.fr       */
+/*   Updated: 2023/02/12 15:04:58 by jhusso           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
+
+int ready_sorted(int *st_a, int len)
+{
+	int i;
+
+	i = 0;
+	while (i < len -1)
+	{
+		if (st_a[i+1] < st_a[i])
+		{
+			// printf("not sorted\n");
+			return 1;
+		}
+		i++;
+	}
+	// printf("sorted\n");
+	return 0;
+}
 
 int av_count(char **array)
 {
@@ -39,7 +57,7 @@ int *allocate_n_fill_stack(char **array)
 	i = 0;
 	while (array[i])
 	{
-		if(!ft_atoi(array[i]))
+		if(ft_atoi(array[i]) == 0 && (int)array[i] == 0)
 		{
 			error_msg("Error\n");
 			exit(1);
@@ -48,31 +66,6 @@ int *allocate_n_fill_stack(char **array)
 		i++;
 	}
 	return(st_a);
-}
-
-int *mini_sort(int *aux, int len)
-{
-	int	temp = 0;
-	int i = 0;
-
-	while (i < len - 1)
-	{
-		if (aux[i] > aux[i + 1])
-		{
-			temp = aux[i];
-			aux[i] = aux[i + 1];
-			aux[i + 1] = temp;
-			i = 0;
-		}
-		else
-			i++;
-	}
-	// while (aux[i]) !!! ASK MERI how to print out integers in array!!!
-	// {
-	// 	printf("sorted = %d\n", (int)aux[i]);
-	// 	i++;
-	// }
-	return (aux);
 }
 
 int	no_duplicates(int *st_a, int len)
@@ -104,6 +97,7 @@ int	no_duplicates(int *st_a, int len)
 int	work_stack(char **array)
 {
 	int *st_a;
+	int *st_b;
 	// int i = 0;
 	int len;
 
@@ -116,6 +110,15 @@ int	work_stack(char **array)
 		error_msg("Error\n");
 		exit(1);
 	}
+	if (!ready_sorted(st_a, len)) // list is sorted
+	{
+		free(st_a);
+		exit(0);
+	}
+	st_b = (int *)calloc(sizeof(int *), len);
+	if (len == 3)
+		sort_three(st_a, len);
+
 	// while (st_a[i])
 	// {
 	// 	printf("st_a[%d] = %d\n", i, st_a[i]); // HOX
