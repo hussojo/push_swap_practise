@@ -6,7 +6,7 @@
 /*   By: jhusso <jhusso@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/27 14:16:28 by jhusso            #+#    #+#             */
-/*   Updated: 2023/02/12 15:22:13 by jhusso           ###   ########.fr       */
+/*   Updated: 2023/02/12 18:00:25 by jhusso           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,19 +48,19 @@ int *allocate_n_fill_stack(char **array)
 	int *st_a;
 
 	len = av_count(array);
-	st_a = (int *)calloc(sizeof(int *), len);
+	st_a = (int *)ft_calloc(sizeof(int *), len);
 	if (!st_a)
 	{
 		free(st_a);
+		printf("error callocin st_a\n");
 		exit(1);
 	}
 	i = 0;
 	while (array[i])
 	{
-		if(ft_atoi(array[i]) == 0 && (int)array[i] == 0)
+		if(!ft_atoi(array[i])) //  && array[i] == 0
 		{
-			error_msg("Error\n");
-			exit(1);
+			error_msg("Error in atoi\n", 1);
 		}
 		st_a[i] = ft_atoi(array[i]);
 		i++;
@@ -73,7 +73,7 @@ int	no_duplicates(int *st_a, int len)
 	int i = 0;
 	int *aux;
 
-	aux = (int *)calloc(sizeof(int), len + 1);
+	aux = (int *)ft_calloc(sizeof(int), len + 1);
 	if (!aux)
 		return 0;
 	aux[len] = '\0';
@@ -104,20 +104,25 @@ int	work_stack(char **array)
 	st_a = 0;
 	len = av_count(array);
 	st_a = allocate_n_fill_stack(array);
-	if (!st_a || st_a == NULL || !no_duplicates(st_a, len))
+	if (!st_a || st_a == NULL)
 	{
 		free(st_a);
-		error_msg("Error\n");
-		exit(1);
+		error_msg("Error alloc\n", 1);
+	}
+	if (!no_duplicates(st_a, len))
+	{
+		free(st_a);
+		error_msg("Error dup\n", 1);
 	}
 	if (!ready_sorted(st_a, len)) // list is sorted
 	{
 		free(st_a);
 		exit(0);
 	}
-	st_b = (int *)calloc(sizeof(int *), len);
+	st_b = (int *)ft_calloc(sizeof(int *), len);
 	if (len == 3)
 		sort_three(st_a, len);
+	free(st_a);
 
 	// while (st_a[i])
 	// {

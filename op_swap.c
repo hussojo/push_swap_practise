@@ -1,37 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   sort_three.c                                       :+:      :+:    :+:   */
+/*   op_swap.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jhusso <jhusso@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/02/12 10:31:28 by jhusso            #+#    #+#             */
-/*   Updated: 2023/02/12 15:57:51 by jhusso           ###   ########.fr       */
+/*   Created: 2023/02/12 15:30:50 by jhusso            #+#    #+#             */
+/*   Updated: 2023/02/12 16:20:49 by jhusso           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	sort_three(int *st_a, int len)
+int	*ft_op_sa(int *st_a)
 {
-	int i = 0;
-	int count = 0;
-	while (ready_sorted(st_a, len) == 1)
-	{
-		if (st_a[i] > st_a[i+1])
-		{
-			ft_op_sa(st_a);
-		}
-		else
-		{
-			ft_op_rra(st_a, len);
-		}
-		count++;
-	}
-	while (st_a[i])
-	{
-		printf("st_a[%d] = %d\n", i , st_a[i]);
-		i++;
-	}
-	return ;
+	int temp;
+	int i;
+
+	temp = 0;
+	i = 0;
+	temp = st_a[i];
+	st_a[i] = st_a[i + 1];
+	st_a[i + 1] = temp;
+	ft_putstr_fd("sa\n", 1);
+	return(st_a);
 }

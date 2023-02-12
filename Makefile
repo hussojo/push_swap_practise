@@ -6,7 +6,7 @@
 #    By: jhusso <jhusso@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/01/21 15:49:29 by jhusso            #+#    #+#              #
-#    Updated: 2023/02/12 14:07:53 by jhusso           ###   ########.fr        #
+#    Updated: 2023/02/12 16:19:18 by jhusso           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -14,10 +14,11 @@ NAME = libftpushswap.a
 CC = cc
 RM = rm -f
 BUILD_FLAGS = -Wall -Wextra -Werror
-LIBFT = ./libft
-INCLUDE = ./libft/libft.h
+LIBFT = ./libft_push_swap
+INCLUDE = ./libft_push_swap/libft.h
 
-SRC =	push_swap.c work_stack.c push_swap_utils.c sort_three.c
+SRC =	push_swap.c work_stack.c push_swap_utils.c sort_three.c op_swap.c \
+		 op_rotate.c op_rev_rotate.c
 
 OBJ = $(SRC:.c=.o)
 
@@ -26,14 +27,14 @@ H_FILES = push_swap.h
 all: $(NAME)
 
 $(NAME): $(SRC)
-	make -C ./libft/ all
-	mv ./libft/libft.a ./$(NAME)
+	make -C ./libft_push_swap/ all
+	mv ./libft_push_swap/libft.a ./$(NAME)
 	$(CC) -c $(BUILD_FLAGS) $(SRC) -I $(INCLUDE) -g
 	ar rus $(NAME) $(OBJ)
 
 clean:
 	$(RM) $(OBJ)
-	cd $(LIBFT) && $(MAKE) clean -libft
+	cd $(LIBFT) && $(MAKE) clean -libft_push_swap
 
 fclean: clean
 	$(RM) $(NAME)

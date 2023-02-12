@@ -6,7 +6,7 @@
 /*   By: jhusso <jhusso@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/21 15:41:25 by jhusso            #+#    #+#             */
-/*   Updated: 2023/02/12 15:22:09 by jhusso           ###   ########.fr       */
+/*   Updated: 2023/02/12 17:03:31 by jhusso           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,11 +14,11 @@
 # define PUSH_SWAP_H
 
 # include <unistd.h> // write
-# include <stdlib.h> // NULL, exit failure & success, calloc
+# include <stdlib.h> // NULL, exit failure & success, ft_calloc
 # include <stdio.h>
 # include <stdbool.h> // boolean values
 
-# include "libft/libft.h"
+# include "libft_push_swap/libft.h"
 
 // push_swap.c
 char	**ft_one_arg(char **av, char **array);
@@ -26,7 +26,7 @@ char	**ft_many_args(char **av, int ac, char **array);
 int		main(int ac, char **av);
 
 // push_swap_utils.c
-void	error_msg(char *msg);
+void	error_msg(char *msg, int flag);
 int		*mini_sort(int *aux, int len);
 
 // work_stack.c
@@ -37,9 +37,15 @@ int		no_duplicates(int *st_a, int len);
 int		work_stack(char **array);
 
 // sort_three.c
-int		*ft_op_sa(int *st_a);
-int		*ft_op_rra(int *st_a);
-int		*ft_op_ra(int *st_a);
 void	sort_three(int *st_a, int len);
+
+// op_swap.c
+int		*ft_op_sa(int *st_a);
+
+// op_rotate.c
+int		*ft_op_ra(int *st_a, int len);
+
+// op_rev_rotate
+int		*ft_op_rra(int *st_a, int len);
 
 #endif

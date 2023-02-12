@@ -1,44 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push_swap_utils.c                                  :+:      :+:    :+:   */
+/*   op_rotate.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jhusso <jhusso@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/02/11 16:44:51 by jhusso            #+#    #+#             */
-/*   Updated: 2023/02/12 17:03:27 by jhusso           ###   ########.fr       */
+/*   Created: 2023/02/12 15:32:19 by jhusso            #+#    #+#             */
+/*   Updated: 2023/02/12 16:20:42 by jhusso           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void error_msg(char *msg, int flag)
-{
-	ft_putstr_fd(msg, 2);
-	exit(flag);
-}
+// first elem becomes the last one
 
-int *mini_sort(int *array, int len)
+int	*ft_op_ra(int *st_a, int len)
 {
-	int	temp = 0;
-	int i = 0;
+	int temp;
+	int i;
 
+	temp = 0;
+	i = 0;
+	temp = st_a[i];
 	while (i < len - 1)
 	{
-		if (array[i] > array[i + 1])
-		{
-			temp = array[i];
-			array[i] = array[i + 1];
-			array[i + 1] = temp;
-			i = 0;
-		}
-		else
-			i++;
+		st_a[i] = st_a[i + 1];
+		i++;
 	}
-	// while (aux[i]) !!! ASK MERI how to print out integers in array!!!
-	// {
-	// 	printf("sorted = %d\n", (int)aux[i]);
-	// 	i++;
-	// }
-	return (array);
+	st_a[len-1] = temp;
+	ft_putstr_fd("ra\n", 1);
+	return (st_a);
 }
