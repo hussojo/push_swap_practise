@@ -6,7 +6,7 @@
 /*   By: jhusso <jhusso@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/21 15:41:25 by jhusso            #+#    #+#             */
-/*   Updated: 2023/02/13 12:18:11 by jhusso           ###   ########.fr       */
+/*   Updated: 2023/02/13 13:21:37 by jhusso           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,11 +27,12 @@ int		main(int ac, char **av);
 
 // push_swap_utils.c
 void	error_msg(char *msg, int flag);
+int		ready_sorted(int *st_a, int len);
 int		*mini_sort(int *aux, int len);
 
 // work_stack.c
-int		ready_sorted(int *st_a, int len);
 int		av_count(char **array);
+void	do_checks(int *st_a, int len);
 int		*allocate_n_fill_stack(char **array);
 int		no_duplicates(int *st_a, int len);
 int		work_stack(char **array);

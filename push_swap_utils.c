@@ -6,7 +6,7 @@
 /*   By: jhusso <jhusso@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/11 16:44:51 by jhusso            #+#    #+#             */
-/*   Updated: 2023/02/12 17:03:27 by jhusso           ###   ########.fr       */
+/*   Updated: 2023/02/13 13:13:07 by jhusso           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,24 @@ void error_msg(char *msg, int flag)
 {
 	ft_putstr_fd(msg, 2);
 	exit(flag);
+}
+
+int ready_sorted(int *st_a, int len)
+{
+	int i;
+
+	i = 0;
+	while (i < len -1)
+	{
+		if (st_a[i+1] < st_a[i])
+		{
+			// printf("not sorted\n");
+			return 1;
+		}
+		i++;
+	}
+	// printf("sorted\n");
+	return 0;
 }
 
 int *mini_sort(int *array, int len)

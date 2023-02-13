@@ -6,29 +6,11 @@
 /*   By: jhusso <jhusso@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/27 14:16:28 by jhusso            #+#    #+#             */
-/*   Updated: 2023/02/13 12:18:10 by jhusso           ###   ########.fr       */
+/*   Updated: 2023/02/13 13:23:56 by jhusso           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
-
-int ready_sorted(int *st_a, int len)
-{
-	int i;
-
-	i = 0;
-	while (i < len -1)
-	{
-		if (st_a[i+1] < st_a[i])
-		{
-			// printf("not sorted\n");
-			return 1;
-		}
-		i++;
-	}
-	// printf("sorted\n");
-	return 0;
-}
 
 int av_count(char **array)
 {
@@ -39,6 +21,25 @@ int av_count(char **array)
 		count++;
 	// printf("av_count:%d\n", count); // HOX
 	return(count);
+}
+
+void	do_checks(int *st_a, int len)
+{
+	if (!st_a || st_a == NULL)
+	{
+		free(st_a);
+		error_msg("Error alloc\n", 1);
+	}
+	if (!no_duplicates(st_a, len))
+	{
+		free(st_a);
+		error_msg("Error dup\n", 1);
+	}
+	if (!ready_sorted(st_a, len)) // list is sorted
+	{
+		free(st_a);
+		exit(0);
+	}
 }
 
 int *allocate_n_fill_stack(char **array)
@@ -65,6 +66,7 @@ int *allocate_n_fill_stack(char **array)
 		st_a[i] = ft_atoi(array[i]);
 		i++;
 	}
+	free(array);
 	return(st_a);
 }
 
@@ -104,26 +106,12 @@ int	work_stack(char **array)
 	st_a = 0;
 	len = av_count(array);
 	st_a = allocate_n_fill_stack(array);
-	if (!st_a || st_a == NULL)
-	{
-		free(st_a);
-		error_msg("Error alloc\n", 1);
-	}
-	if (!no_duplicates(st_a, len))
-	{
-		free(st_a);
-		error_msg("Error dup\n", 1);
-	}
-	if (!ready_sorted(st_a, len)) // list is sorted
-	{
-		free(st_a);
-		exit(0);
-	}
+	do_checks(st_a, len);
 	st_b = (int *)ft_calloc(sizeof(int *), len);
 	if (len == 3)
 		sort_three(st_a, len);
-	if (len == 5)
-		sort_five(st_a, st_b, len);
+	// if (len == 5)
+	// 	sort_five(st_a, st_b, len);
 	free(st_a);
 
 	// while (st_a[i])
