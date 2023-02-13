@@ -6,7 +6,7 @@
 /*   By: jhusso <jhusso@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/21 15:49:16 by jhusso            #+#    #+#             */
-/*   Updated: 2023/02/12 17:03:28 by jhusso           ###   ########.fr       */
+/*   Updated: 2023/02/13 12:18:05 by jhusso           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,13 +52,13 @@ int	main(int ac, char **av)
 	{
 		array = ft_one_arg(av, array);
 		if(!array || array[0] == NULL)
-			error_msg("Error\n", 1);
+			error_msg("Error allocating ft_one_arg\n", 1);
 	}
 	if (ac > 2)
 	{
 		array = ft_many_args(av, ac, array);
 		if(!array || array[0] == NULL)
-			error_msg("Error\n", 1);
+			error_msg("Error allocating ft_many_args\n", 1);
 	}
 	if(!work_stack(array))
 	{

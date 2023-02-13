@@ -6,7 +6,7 @@
 /*   By: jhusso <jhusso@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/27 14:16:28 by jhusso            #+#    #+#             */
-/*   Updated: 2023/02/12 18:00:25 by jhusso           ###   ########.fr       */
+/*   Updated: 2023/02/13 12:18:10 by jhusso           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -122,6 +122,8 @@ int	work_stack(char **array)
 	st_b = (int *)ft_calloc(sizeof(int *), len);
 	if (len == 3)
 		sort_three(st_a, len);
+	if (len == 5)
+		sort_five(st_a, st_b, len);
 	free(st_a);
 
 	// while (st_a[i])

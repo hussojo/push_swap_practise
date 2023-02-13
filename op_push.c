@@ -1,27 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_memmove.c                                       :+:      :+:    :+:   */
+/*   op_push.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jhusso <jhusso@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/10/26 16:09:50 by jhusso            #+#    #+#             */
-/*   Updated: 2023/02/13 12:18:06 by jhusso           ###   ########.fr       */
+/*   Created: 2023/02/13 09:57:13 by jhusso            #+#    #+#             */
+/*   Updated: 2023/02/13 12:18:08 by jhusso           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-// modified to find the first space that has no value
+#include "push_swap.h"
 
-#include "libft.h"
-
-void	*ft_memmove(void *dst, const void *src, size_t len)
+int *ft_op_pb(int st_a, int *st_b, int len)
 {
-	if (!dst && !src)
-		return 0;
-	if (dst[len] != '\0')
-		len --;
-	((unsigned char *)dst)[len] = ((unsigned char *)src)[len];
-	// else
-	// 	ft_memcpy(dst, src, len);
-	return (dst);
+	int i;
+
+	i = 0;
+	len = len -1;
+	if (st_b[len] == '\0')
+		st_b[len] = st_a;
+	else
+	{
+		while (st_b[len] != '\0')
+			len--;
+		st_b[len] = st_a;
+	}
 }

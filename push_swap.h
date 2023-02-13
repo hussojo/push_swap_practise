@@ -6,7 +6,7 @@
 /*   By: jhusso <jhusso@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/21 15:41:25 by jhusso            #+#    #+#             */
-/*   Updated: 2023/02/12 17:03:31 by jhusso           ###   ########.fr       */
+/*   Updated: 2023/02/13 12:18:11 by jhusso           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,5 +47,8 @@ int		*ft_op_ra(int *st_a, int len);
 
 // op_rev_rotate
 int		*ft_op_rra(int *st_a, int len);
+
+// op_push.c
+int		*ft_op_pb(int st_a, int *st_b, int len);
 
 #endif
