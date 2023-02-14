@@ -6,7 +6,7 @@
 /*   By: jhusso <jhusso@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/27 14:16:28 by jhusso            #+#    #+#             */
-/*   Updated: 2023/02/14 09:18:43 by jhusso           ###   ########.fr       */
+/*   Updated: 2023/02/14 11:20:10 by jhusso           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,6 +46,7 @@ int *allocate_n_fill_stack(char **array)
 {
 	int len;
 	int i;
+	int num;
 	int *st_a;
 
 	len = av_count(array);
@@ -57,9 +58,13 @@ int *allocate_n_fill_stack(char **array)
 		exit(1);
 	}
 	i = 0;
+	num = 1;
 	while (array[i])
 	{
-		if(!ft_atoi(array[i])) //  && array[i] == 0
+		num = ft_atoi(array[i]); // returnvalue of atoi 0 == error
+		printf("NUM=%d\n", num);
+		printf("array[i] = %c\n", array[i][0]);
+		if(num == 0 && array[i] != 0)
 		{
 			error_msg("Error in atoi\n", 1);
 		}
@@ -110,9 +115,9 @@ int	work_stack(char **array)
 	st_b = (int *)ft_calloc(sizeof(int *), len);
 	if (len == 3)
 		sort_three(st_a, len);
+	free(st_a);
 	// if (len == 5)
 	// 	sort_five(st_a, st_b, len);
-	free(st_a);
 
 	// while (st_a[i])
 	// {
