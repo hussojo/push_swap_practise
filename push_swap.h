@@ -6,7 +6,7 @@
 /*   By: jhusso <jhusso@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/21 15:41:25 by jhusso            #+#    #+#             */
-/*   Updated: 2023/02/13 13:21:37 by jhusso           ###   ########.fr       */
+/*   Updated: 2023/02/14 09:18:45 by jhusso           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,17 +37,19 @@ int		*allocate_n_fill_stack(char **array);
 int		no_duplicates(int *st_a, int len);
 int		work_stack(char **array);
 
-// sort_three.c
+// sort_under_six.c
 void	sort_three(int *st_a, int len);
+// void	sort_four(int *st_a, int *st_b, int len);
+// int		find_min(char *st_a);
 
 // op_swap.c
 int		*ft_op_sa(int *st_a);
 
 // op_rotate.c
-int		*ft_op_ra(int *st_a, int len);
+int		*ft_op_ra(int *st_a);
 
 // op_rev_rotate
-int		*ft_op_rra(int *st_a, int len);
+int		*ft_op_rra(int *st_a);
 
 // op_push.c
 int		*ft_op_pb(int st_a, int *st_b, int len);

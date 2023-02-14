@@ -1,18 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   sort_three.c                                       :+:      :+:    :+:   */
+/*   sort_under_six.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jhusso <jhusso@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/12 10:31:28 by jhusso            #+#    #+#             */
-/*   Updated: 2023/02/12 15:57:51 by jhusso           ###   ########.fr       */
+/*   Updated: 2023/02/14 09:18:44 by jhusso           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	sort_three(int *st_a, int len)
+void	sort_three(int *st_a, int len) // change inputs
 {
 	int i = 0;
 	int count = 0;
@@ -24,7 +24,7 @@ void	sort_three(int *st_a, int len)
 		}
 		else
 		{
-			ft_op_rra(st_a, len);
+			ft_op_rra(st_a); // remove len
 		}
 		count++;
 	}
@@ -35,3 +35,30 @@ void	sort_three(int *st_a, int len)
 	}
 	return ;
 }
+
+// void	sort_four(int *st_a, int *st_b, int len)
+// {
+// 	ft_op_pb(st_a[find_min(st_a)], st_b, len);
+// 	sort_three();
+// }
+
+// int find_min(char *st_a)
+// {
+// 	char min;
+// 	int i = 0;
+// 	int pos = 0;
+
+// 	min = st_a[0];
+// 	while(i < 4) // is best?
+// 	{
+// 		if (min > st_a[i])
+// 		{
+// 			min = st_a[i];
+// 			pos = i;
+// 		}
+// 		i++;
+// 	}
+// 	printf("position is: %d\n", pos);
+// 	return (pos);
+// }
+
