@@ -6,7 +6,7 @@
 /*   By: jhusso <jhusso@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/26 11:43:45 by jhusso            #+#    #+#             */
-/*   Updated: 2023/02/12 15:22:16 by jhusso           ###   ########.fr       */
+/*   Updated: 2023/02/14 09:21:35 by jhusso           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,13 +14,13 @@
 
 void	ft_bzero(void *s, size_t n)
 {
-	size_t	index;
+	size_t	counter;
 
-	index = 0;
-	while (index < n)
+	counter = 0;
+	while (counter < n)
 	{
 		*(char *)s = '\0';
 		s++;
-		index++;
+		counter++;
 	}
 }

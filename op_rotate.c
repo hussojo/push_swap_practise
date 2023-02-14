@@ -6,7 +6,7 @@
 /*   By: jhusso <jhusso@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/12 15:32:19 by jhusso            #+#    #+#             */
-/*   Updated: 2023/02/14 09:18:41 by jhusso           ###   ########.fr       */
+/*   Updated: 2023/02/14 10:00:46 by jhusso           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 // first elem becomes the last one
 
-int	*ft_op_ra(int *st_a)
+void ft_op_ra(int *st_a)
 {
 	int temp;
 	int i;
@@ -29,5 +29,5 @@ int	*ft_op_ra(int *st_a)
 	}
 	st_a[i] = temp;
 	ft_putstr_fd("ra\n", 1);
-	return (st_a);
+	return ;
 }

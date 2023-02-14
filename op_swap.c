@@ -6,13 +6,13 @@
 /*   By: jhusso <jhusso@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/12 15:30:50 by jhusso            #+#    #+#             */
-/*   Updated: 2023/02/12 16:20:49 by jhusso           ###   ########.fr       */
+/*   Updated: 2023/02/14 10:02:48 by jhusso           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-int	*ft_op_sa(int *st_a)
+void ft_op_sa(int *st_a)
 {
 	int temp;
 	int i;
@@ -23,5 +23,5 @@ int	*ft_op_sa(int *st_a)
 	st_a[i] = st_a[i + 1];
 	st_a[i + 1] = temp;
 	ft_putstr_fd("sa\n", 1);
-	return(st_a);
+	return ;
 }
