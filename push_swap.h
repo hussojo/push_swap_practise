@@ -6,7 +6,7 @@
 /*   By: jhusso <jhusso@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/21 15:41:25 by jhusso            #+#    #+#             */
-/*   Updated: 2023/02/14 10:40:04 by jhusso           ###   ########.fr       */
+/*   Updated: 2023/02/14 17:03:43 by jhusso           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,8 +39,9 @@ int		work_stack(char **array);
 
 // sort_under_six.c
 void	sort_three(int *st_a, int len);
-// void	sort_four(int *st_a, int *st_b, int len);
-// int		find_min(char *st_a);
+void	sort_four(int *st_a, int *st_b, int len);
+int		find_min(int *st_a);
+void	sort_under_six(int *st_a, int *st_b, int len);
 
 // op_swap.c
 void	ft_op_sa(int *st_a);
@@ -52,6 +53,7 @@ void	ft_op_ra(int *st_a);
 void	ft_op_rra(int *st_a);
 
 // op_push.c
-int		ft_op_pb(int st_a, int *st_b);
+void	ft_push_a_up(int *st_a);
+void	ft_op_pb(int st_a, int *st_b);
 
 #endif

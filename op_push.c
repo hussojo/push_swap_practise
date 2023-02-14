@@ -6,13 +6,28 @@
 /*   By: jhusso <jhusso@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/13 09:57:13 by jhusso            #+#    #+#             */
-/*   Updated: 2023/02/14 10:17:54 by jhusso           ###   ########.fr       */
+/*   Updated: 2023/02/14 17:03:41 by jhusso           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-int ft_op_pb(int st_a, int *st_b)
+void ft_push_a_up(int *st_a)
+{
+	int i;
+
+	i = 0;
+	while(st_a[i])
+	{
+		st_a[i] = st_a[i + 1];
+		printf("here\n");
+		i++;
+	}
+	st_a[i] = 0;
+	return ;
+}
+
+void ft_op_pb(int st_a, int *st_b)
 {
 	int i;
 	int j;
@@ -32,8 +47,14 @@ int ft_op_pb(int st_a, int *st_b)
 		}
 	}
 	st_b[i] = st_a;
-	st_a = 0;
+	i = 0;
+	while (i < 4)
+	{
+		printf("st_b[%d] = %d\n", i , st_b[i]);
+		i++;
+	}
+	i = 0;
+	printf("st_a[%d] = %d\n", i , st_a);
 	ft_putstr_fd("pb\n", 1);
-	return (st_a);
+	return ;
 }
-

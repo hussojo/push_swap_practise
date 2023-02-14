@@ -6,7 +6,7 @@
 /*   By: jhusso <jhusso@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/27 14:16:28 by jhusso            #+#    #+#             */
-/*   Updated: 2023/02/14 11:20:10 by jhusso           ###   ########.fr       */
+/*   Updated: 2023/02/14 17:03:39 by jhusso           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,9 +62,9 @@ int *allocate_n_fill_stack(char **array)
 	while (array[i])
 	{
 		num = ft_atoi(array[i]); // returnvalue of atoi 0 == error
-		printf("NUM=%d\n", num);
-		printf("array[i] = %c\n", array[i][0]);
-		if(num == 0 && array[i] != 0)
+		// printf("NUM=%d\n", num);
+		// printf("array[i] = %s\n", array[i]);
+		if(num == 0 && *array[i] != '0')
 		{
 			error_msg("Error in atoi\n", 1);
 		}
@@ -84,7 +84,7 @@ int	no_duplicates(int *st_a, int len)
 	if (!aux)
 		return 0;
 	aux[len] = '\0';
-	while (st_a[i])
+	while (i < len)
 	{
 		aux[i] = st_a[i];
 		i++;
@@ -113,8 +113,8 @@ int	work_stack(char **array)
 	st_a = allocate_n_fill_stack(array);
 	do_checks(st_a, len);
 	st_b = (int *)ft_calloc(sizeof(int *), len);
-	if (len == 3)
-		sort_three(st_a, len);
+	if (len < 6)
+		sort_under_six(st_a, st_b, len);
 	free(st_a);
 	// if (len == 5)
 	// 	sort_five(st_a, st_b, len);
